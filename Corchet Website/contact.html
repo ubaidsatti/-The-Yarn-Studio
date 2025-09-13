@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
+<style>
+            /* Simple, contained styles */
+    body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; padding:0; color:#222}
+    header{background:#670D2F;color:#EF88AD;padding:1rem}
+    .a-link-mainpage {
+          color: #2f5099; /* normal link color (soft pink) */
+          text-decoration: none;
+          transition: color 0.3s ease
+    }
+    .a-link-mainpage:hover {
+        color: #C9184A;
+    }
+
+    .container{max-width:900px;margin:1.5rem auto;padding:0 1rem}
+    nav a{color:#cbd5e1;margin-right:1rem;text-decoration:none}
+    footer{border-top:1px solid #e6e6e6;padding:0rem;vertical-align: middle;text-align:center;color:#555;margin-top:2rem}
+    .footer-container{
+        bottom: 0;
+        padding-top: 80px;
+        /* vertical-align: middle; */
+        color: white;
+        background-color: #0f172a;
+        /* display: table-cell; */
+        width: 100%;
+        height: 100px;
+        margin: 0;
+    }
+    .card{background:#fff;border:1px solid #eaeaea;padding:1rem;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+    form label{display:block;margin-top:0.5rem;font-weight:600}
+    input[type=text], input[type=email], textarea{width:100%;padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;margin-top:0.25rem}
+    button{background:#0ea5a4;color:white;border:none;padding:0.5rem 0.9rem;border-radius:6px;cursor:pointer;margin-top:0.75rem}
+    .messages{margin-top:1rem}
+    .msg{padding:0.6rem;border-bottom:1px solid #f1f1f1}
+    @media (max-width:600px){header{padding:0.6rem}}
+</style>
+<body>
+            <div class="card">
+            <h2>Contact</h2>
+            {% if success %}
+            <div style="background:#ecfdf5;padding:0.6rem;border-radius:6px;color:#064e3b">Message sent — thank you!</div>
+            {% endif %}
+            <form method="post" action="{{ url_for('contact') }}">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required value="{{ request.form.get('name','') }}" />
+
+                <label for="email">Email (optional)</label>
+                <input id="email" name="email" type="email" value="{{ request.form.get('email','') }}" />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="write what you get..."></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+</body>
+</html>
+
+                <!-- You can reach me at Whatsapp (319 5907747) using message💬.</p> -->
+            <!-- {% if success %}
+            <div style="background:#ecfdf5;padding:0.6rem;border-radius:6px;color:#064e3b">Message sent — thank you!</div>
+            {% endif %}
+            <form method="post" action="{{ url_for('contact') }}">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required placeholder="Enter your name" />
+
+                <label for="email">Email (optional)</label>
+                <input id="email" name="email" type="email" placeholder="Enter your name..." />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="write what you get..."></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div> -->
