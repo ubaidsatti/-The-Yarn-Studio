@@ -7,34 +7,161 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>🧵The Yarn Studio</title>
     <style>
-            
-    body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; padding:0; color:#222}
-    header{background:#670D2F;color:#EF88AD;padding:1rem}
-    .container{max-width:900px;margin:3rem auto;padding:0 1rem}
-    nav a{color:#EF88AD;margin-right:1rem;text-decoration:none}
-    footer{border-top:1px solid #e6e6e6;padding:0rem;text-align:center;color:#555;margin-top:2rem}
-    .footer-container{
-        padding-top: 80px;
+    body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        margin: 0;
+        padding: 0;
+        color: #222;
+    }
+
+    /* HEADER */
+    header {
+        background: #670D2F;
         color: #EF88AD;
-        background-color: #670D2F;
+        padding: 1rem 1rem;   /* increased padding = taller header */
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 200px;
+        z-index: 1000;
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0;
+}
+
+
+    /* 🔹 Navigation Links */
+    nav a {
+        font-size: 1rem;
+        margin-right: 1rem;
+        color: #EF88AD;
+        text-decoration: none;
+        display: inline-block;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    header h1 {
+        font-size: 1.5rem;  /* a bit larger since header is taller */
         margin: 0;
     }
-    .card{background:#fff;border:2px solid #eaeaea;padding:1rem;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
-    form label{display:block;margin-top:0.5rem;font-weight:600}
-    input[type=text], input[type=email], textarea{width:100%;padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;margin-top:0.25rem}
-    button{background:#0ea5a4;color:white;border:none;padding:0.5rem 0.9rem;border-radius:6px;cursor:pointer;margin-top:0.75rem}
-    .messages{margin-top:1rem}
-    .msg{padding:0.6rem;border-bottom:1px solid #f1f1f1}
-    @media (max-width:600px){header{padding:0.6rem}}
+    /* Space for fixed header */
+    main.container {
+        margin-top: 7rem;  /* adjusted so content clears taller header */
+    }
+    nav a:hover {
+        color: #e2b3c5;
+        transform: translateY(-3px);
+    }
 
+    /* 🔹 Main Container (space below header) */
+    main.container {
+        max-width: 900px;
+        margin: 4rem auto;  /* pushes content below fixed header */
+        padding: 0 1rem;
+    }
+
+    /* 🔹 Card Styling */
+    .card {
+        background: #fff;
+        border: 2px solid #eaeaea;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 2rem auto;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        border-color: #EF88AD;
+    }
+
+    /* 🔹 Footer */
+footer {
+    background: #670D2F;
+    color: #EF88AD;
+    padding: 1rem;
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-left p,
+.footer-right p {
+    margin: 0.3rem 0;
+}
+
+footer a {
+    color: #EF88AD;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+        transform: translateY(-3px);
+}
+
+    /* 🔹 Form Elements */
+    form label {
+        display: block;
+        margin-top: 0.5rem;
+        font-weight: 600;
+    }
+
+    input[type=text], input[type=email], textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        margin-top: 0.25rem;
+    }
+
+    button {
+        background: #0ea5a4;
+        color: white;
+        border: none;
+        padding: 0.5rem 0.9rem;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 0.75rem;
+    }
+
+    .messages {
+        margin-top: 1rem;
+    }
+
+    .msg {
+        padding: 0.6rem;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    /* 🔹 Responsive */
+    @media (max-width: 600px) {
+        header {
+        padding: 0.4rem;
+    }
+    nav a {
+        margin-right: 0.6rem;
+    }
+    }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1 style="margin: 0;">🧵The Yarn Studio</h1>
+            <h1>🧵The Yarn Studio</h1>
             <nav>
                 <a href="home.html">Home</a>
                 <a href="about.html">About</a>
@@ -48,44 +175,53 @@
             <p>I’m Hajra Shahid, and crochet is my hobby. From cozy blankets to delicate coasters, I love turning yarn into something beautiful and handmade with care.</p>
             <p>Try the contact page to send a message.</p>
         </div>
-        
+    
+        <div class="card">
+            <h2>♒ About</h2>
+            <p>
+                🧶 I create:<br>
+                • Unique crochet coasters, doilies, and table décor<br>
+                • Stylish accessories (like headbands, bags, and keychains)<br>
+                • Custom pieces made with love<br><br>
+                Every stitch is done carefully to bring comfort and beauty into your home.
+            </p>
+        </div>
+    
+        <div class="card">
+            <h2>📩 Contact</h2>
+            <p>
+                📩 Let’s connect!<br>
+                Have a question, custom request, or just want to say hi?<br>
+                You can reach me on WhatsApp (319 5907747) 💬.
+            </p>
+        </div>
+    </main>
 
-        <div class="card">
-            <h2>♒About</h2>
-            <p>About My Crochet Skills
-                🧶 I create:
-                Unique crochet coasters, doilies, and table décor
-                Stylish accessories (like headbands, bags, and keychains)
-                Custom pieces made with love
-                Every stitch is done carefully to bring comfort and beauty into your home.</p>
-            </div>
-        <div class="card">
-            <h2>📩Contact</h2>
-            <p>Contact Section
-                📩 Let’s connect!
-                Have a question, custom request, or just want to say hi?\
-                You can reach me at Whatsapp (319 5907747) using message💬.</p>
-            </main>
-            <footer>
-                <div class="footer-container">
-                    <h3 style="margin-bottom:10px;">📩 Contact Me</h3>
-                    <p>
-                        <i class="fas fa-envelope"></i> Email: 
-                        <a href="mailto:yourname@email.com">yourname@email.com</a>
-                    </p>
-                    <p>
-                        <i class="fas fa-phone-alt"></i> Phone: 
-                        <a href="tel:+123456789">+123 456 789</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-whatsapp"></i> WhatsApp: 
-                        <a href="https://wa.me/3195907747" target="_blank">Chat with me</a>
-                    </p>
-                    <p>
-                        <i class="fab fa-instagram"></i> Instagram: 
-                        <a href="https://instagram.com/yourcrochetpage" target="_blank">@yourcrochetpage</a>
-                    </p>
-                </div>
-            </footer>
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+    <div class="footer-left">
+        <p><i class="fas fa-envelope"></i> 
+            <a href="mailto:yourname@email.com">yourname@email.com</a>
+        </p>
+        <p><i class="fas fa-phone-alt"></i> 
+        <a href="tel:+123456789">+123 456 789</a>
+    </p>
+    <p><i class="fab fa-whatsapp"></i> 
+        <a href="https://wa.me/3195907747" target="_blank">Chat with me</a>
+    </p>
+    </div>
+    <div class="footer-right">
+        <p><i class="fab fa-instagram"></i> 
+        <a href="https://instagram.com/yourcrochetpage" target="_blank">@yourcrochetpage</a>
+    </p>
+    <p><i class="fas fa-globe"></i> 
+        <a href="#">www.crochetworld.com</a>
+    </p>
+    </div>
+</footer>
+
+
 </body>
 </html>
